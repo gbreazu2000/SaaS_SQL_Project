@@ -1,4 +1,4 @@
---Taking the original table and splitting the data into multiple sub-tables
+--Taking the original CSV table and splitting the data into multiple sub-tables to create an organized ERD database
 
 -- Create Orders table
 CREATE TABLE Orders (
@@ -120,6 +120,7 @@ FROM customers
 JOIN sales USING (row_id)
 GROUP BY customers.segment
 ORDER BY total_profit DESC
+Limit 5
 
 -- Check Revenue by Industry
 
@@ -128,6 +129,7 @@ FROM customers
 JOIN sales USING (row_id)
 GROUP BY customers.industry
 ORDER BY total_profit DESC
+Limit 5
 
 -- Check Revenue by Product (Top 5)
 
@@ -150,7 +152,7 @@ SELECT order_date
 FROM orders
 ORDER BY order_date ASC
 
---Checking to see all the companies that bought Saas products years from AWS
+--Checking to see all the companies that bought SaaS products in the 3 year period from AWS
 
 SELECT COUNT(DISTINCT customer_id) AS customers_with_orders_in_all_years
 FROM orders
@@ -220,7 +222,7 @@ SELECT product,
     END AS profit_growth_percentage
 FROM ProductProfit;
 
---Checking percentage of yearly profit growth by product
+--Checking percentage of yearly profit growth by segment
 
 WITH SegmentProfit AS (
     SELECT segment,
@@ -306,6 +308,27 @@ SELECT
     rc.Total_Profit
 FROM RankedCountries rc
 WHERE rc.country_rank <= 5;
+
+-- Profit margins by city (Top 5)
+
+WITH CityProfits AS (
+    SELECT City,
+           SUM(Profit) AS Total_Profit
+    FROM Sales
+    JOIN Locations USING (row_id)
+    GROUP BY City
+),
+RankedCity AS (
+    SELECT City,
+           Total_Profit,
+           ROW_NUMBER() OVER (ORDER BY Total_Profit DESC) AS city_rank
+    FROM CityProfits
+)
+SELECT 
+    rc.city,
+    rc.Total_Profit
+FROM RankedCountries rc
+WHERE rc.city_rank <= 5;
 
 	   
 	   
