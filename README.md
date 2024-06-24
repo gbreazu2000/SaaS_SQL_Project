@@ -55,6 +55,12 @@ Moving to revenue analysis, I delved into various factors influencing profit mar
 
 Geographical analysis centered on identifying key regions driving profits, with a focus on countries and cities. Analysis revealed that the United Kingdom, USA, and Canada emerged as top-performing countries in terms of profit margins, with cities like London, New York, and Toronto leading in revenue generation. These findings offer strategic guidance for targeting specific markets and optimizing resource allocation to maximize profitability and drive sustainable growth.
 
+### Data Visualization
+
+To enhance the understanding of the data and highlight key takeaways from the sales analysis, I created a comprehensive Tableau visualization dashboard. This dashboard provides an intuitive interface for exploring the data, making complex insights more accessible and actionable for stakeholders. By focusing KPI metrics such as revenue trends and geographical performance visually, the dashboard aids in identifying patterns and supports strategic decision-making.
+
+Link: https://public.tableau.com/app/profile/nicholas.breazu/viz/SaaS_Dashboard/Dashboard1
+
 ### Conclusive Thoughts
 
 In conclusion, while the analysis yielded valuable business insights, certain indicators suggest that the dataset may not fully reflect real-world scenarios, such as the absence of customer churn. Moving forward, enhancing the project with data visualization techniques would not only augment the presentation of findings but also provide non-technical stakeholders with clearer insights. Additionally, sourcing datasets that more accurately mirror genuine business environments will be crucial for generating actionable intelligence and informing strategic decision-making. By incorporating these enhancements and continuing to refine analysis methodologies, the project stands to deliver even greater value in uncovering actionable insights and driving business growth.
